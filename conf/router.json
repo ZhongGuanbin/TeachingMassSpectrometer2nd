@@ -1,0 +1,5 @@
+{
+    "annotation" : "A configuration table for later plugin development, where router dynamically loads modules or plugins based on the configuration table",
+    "/" : "HomePage",
+    "/settings" : "Settings"
+}

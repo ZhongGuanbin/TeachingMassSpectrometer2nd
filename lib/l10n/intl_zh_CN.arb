@@ -1,0 +1,9 @@
+{
+    "@@locale": "zh_CN",
+    "appTitle": "教学质谱",
+    "@appTitle": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    }
+}

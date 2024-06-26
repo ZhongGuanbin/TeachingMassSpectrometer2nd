@@ -1,0 +1,9 @@
+{
+    "@@locale": "en",
+    "appTitle": "TeachingMassSpectrometer",
+    "@appTitle": {
+        "description": "Title for the TeachingMassSpectrometer application",
+        "type": "text",
+        "placeholders": {}
+    }
+}

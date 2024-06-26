@@ -2,6 +2,7 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
+import 'package:teaching_mass_spectrometer_2nd/generated/l10n.dart';
 import 'package:teaching_mass_spectrometer_2nd/routes/router.dart';
 import 'package:teaching_mass_spectrometer_2nd/theme.dart';
 import 'package:teaching_mass_spectrometer_2nd/widgets/window_buttons.dart';
@@ -178,7 +179,7 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
             return Align(
               alignment: AlignmentDirectional.centerStart,
               child: Text(
-                'test',
+                TMSLocalizations.of(context).appTitle,
                 style: FluentTheme.of(context).typography.title,
               ),
             );
@@ -187,7 +188,7 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
             child: Align(
               alignment: AlignmentDirectional.centerStart,
               child: Text(
-                'test',
+                TMSLocalizations.of(context).appTitle,
                 style: FluentTheme.of(context).typography.title,
               ),
             ),

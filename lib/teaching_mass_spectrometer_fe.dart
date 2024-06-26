@@ -1,6 +1,8 @@
 import 'package:fluent_ui/fluent_ui.dart' hide Page;
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart' as flutter_acrylic;
+import 'package:teaching_mass_spectrometer_2nd/generated/l10n.dart';
 import 'package:teaching_mass_spectrometer_2nd/routes/router.dart';
 import 'package:teaching_mass_spectrometer_2nd/theme.dart';
 
@@ -17,7 +19,8 @@ class TeachingMassSpectrometerFe extends StatelessWidget {
         final appTheme = context.watch<AppTheme>();
 
         return FluentApp.router(
-          title: 'TeachingMassSpectrometerFe',
+          // title: 'TeachingMassSpectrometerFe',
+          onGenerateTitle: (context) => TMSLocalizations.of(context).appTitle,
           themeMode: appTheme.mode,
           debugShowCheckedModeBanner: false,
           color: appTheme.color,
@@ -37,6 +40,13 @@ class TeachingMassSpectrometerFe extends StatelessWidget {
             ),
           ),
           locale: appTheme.locale,
+          localizationsDelegates: const [
+            GlobalWidgetsLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            FluentLocalizations.delegate,
+            TMSLocalizations.delegate,
+          ],
           /// 不需要设置supportedLocales，默认使用FluentLocalizations.supportedLocales
           builder: (context, child) {
             return Directionality(

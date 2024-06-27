@@ -5,6 +5,8 @@ import 'package:teaching_mass_spectrometer_2nd/screens/home.dart';
 import 'package:teaching_mass_spectrometer_2nd/screens/settings.dart';
 
 /// 路由管理器
+/// TODO: 需要将软件启动页'/'变更为登陆界面，登陆成功后进行跳转
+/// TODO: 需要添加日志记录功能
 final rootNavigatorKey = GlobalKey<NavigatorState>();
 final shellNavigatorKey = GlobalKey<NavigatorState>();
 final router = GoRouter(

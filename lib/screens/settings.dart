@@ -2,6 +2,7 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_acrylic/flutter_acrylic.dart';
 import 'package:provider/provider.dart';
+import 'package:teaching_mass_spectrometer_2nd/generated/l10n.dart';
 import 'package:teaching_mass_spectrometer_2nd/theme.dart';
 import 'package:teaching_mass_spectrometer_2nd/widgets/page.dart';
 
@@ -92,9 +93,9 @@ class _SettingsState extends State<Settings> with PageMixin {
     final currentLocale =
         appTheme.locale ?? Localizations.maybeLocaleOf(context);
     return ScaffoldPage.scrollable(
-      header: const PageHeader(title: Text('Settings')),
+      header: PageHeader(title: Text(TMSLocalizations.of(context).appSettings)),
       children: [
-        Text('Theme mode', style: FluentTheme.of(context).typography.subtitle),
+        Text(TMSLocalizations.of(context).themeMode, style: FluentTheme.of(context).typography.subtitle),
         spacer,
         ...List.generate(ThemeMode.values.length, (index) {
           final mode = ThemeMode.values[index];
@@ -119,7 +120,7 @@ class _SettingsState extends State<Settings> with PageMixin {
         }),
         biggerSpacer,
         Text(
-          'Navigation Pane Display Mode',
+          TMSLocalizations.of(context).navigationPaneDisplayMode,
           style: FluentTheme.of(context).typography.subtitle,
         ),
         spacer,
@@ -139,7 +140,7 @@ class _SettingsState extends State<Settings> with PageMixin {
           );
         }),
         biggerSpacer,
-        Text('Navigation Indicator',
+        Text(TMSLocalizations.of(context).navigationIndicator,
             style: FluentTheme.of(context).typography.subtitle),
         spacer,
         ...List.generate(NavigationIndicators.values.length, (index) {
@@ -158,7 +159,7 @@ class _SettingsState extends State<Settings> with PageMixin {
           );
         }),
         biggerSpacer,
-        Text('Accent Color',
+        Text(TMSLocalizations.of(context).accentColor,
             style: FluentTheme.of(context).typography.subtitle),
         spacer,
         Wrap(children: [
@@ -177,7 +178,7 @@ class _SettingsState extends State<Settings> with PageMixin {
         if (kIsWindowEffectsSupported) ...[
           biggerSpacer,
           Text(
-            'Window Transparency',
+            TMSLocalizations.of(context).windowTransparency,
             style: FluentTheme.of(context).typography.subtitle,
           ),
           description(
@@ -207,7 +208,7 @@ class _SettingsState extends State<Settings> with PageMixin {
         ],
         biggerSpacer,
         Text(
-          'Text Direction',
+          TMSLocalizations.of(context).textDirection,
           style: FluentTheme.of(context).typography.subtitle,
         ),
         spacer,
@@ -232,13 +233,7 @@ class _SettingsState extends State<Settings> with PageMixin {
           );
         }).reversed,
         biggerSpacer,
-        Text('Locale', style: FluentTheme.of(context).typography.subtitle),
-        description(
-          content: const Text(
-            'The locale used by the fluent_ui widgets, such as TimePicker and '
-            'DatePicker. This does not reflect the language of this showcase app.',
-          ),
-        ),
+        Text(TMSLocalizations.of(context).locale, style: FluentTheme.of(context).typography.subtitle),
         spacer,
         Wrap(
           spacing: 15.0,

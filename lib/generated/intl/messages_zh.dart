@@ -22,6 +22,23 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "appTitle": MessageLookupByLibrary.simpleMessage("教学质谱")
+        "accentColor": MessageLookupByLibrary.simpleMessage("强调色"),
+        "appAffirmButtonLabel": MessageLookupByLibrary.simpleMessage("是"),
+        "appBackButtonLabel": MessageLookupByLibrary.simpleMessage("返回"),
+        "appCancelButtonLabel": MessageLookupByLibrary.simpleMessage("取消"),
+        "appCloseDialogContent":
+            MessageLookupByLibrary.simpleMessage("您确定要关闭此窗口吗？"),
+        "appCloseDialogTitle": MessageLookupByLibrary.simpleMessage("确认关闭"),
+        "appConfirmButtonLabel": MessageLookupByLibrary.simpleMessage("确定"),
+        "appDenyButtonLabel": MessageLookupByLibrary.simpleMessage("否"),
+        "appSettings": MessageLookupByLibrary.simpleMessage("设置"),
+        "appTitle": MessageLookupByLibrary.simpleMessage("教学质谱"),
+        "locale": MessageLookupByLibrary.simpleMessage("语言"),
+        "navigationIndicator": MessageLookupByLibrary.simpleMessage("导航指示器"),
+        "navigationPaneDisplayMode":
+            MessageLookupByLibrary.simpleMessage("导航窗格显示模式"),
+        "textDirection": MessageLookupByLibrary.simpleMessage("文本方向"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("主题模式"),
+        "windowTransparency": MessageLookupByLibrary.simpleMessage("窗口透明度")
       };
 }

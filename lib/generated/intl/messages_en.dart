@@ -22,7 +22,27 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "accentColor": MessageLookupByLibrary.simpleMessage("Accent Color"),
+        "appAffirmButtonLabel": MessageLookupByLibrary.simpleMessage("Yes"),
+        "appBackButtonLabel": MessageLookupByLibrary.simpleMessage("Back"),
+        "appCancelButtonLabel": MessageLookupByLibrary.simpleMessage("Cancel"),
+        "appCloseDialogContent": MessageLookupByLibrary.simpleMessage(
+            "Are you sure you want to close this window?"),
+        "appCloseDialogTitle":
+            MessageLookupByLibrary.simpleMessage("Confirm close"),
+        "appConfirmButtonLabel": MessageLookupByLibrary.simpleMessage("Yes"),
+        "appDenyButtonLabel": MessageLookupByLibrary.simpleMessage("No"),
+        "appSettings": MessageLookupByLibrary.simpleMessage("Settings"),
         "appTitle":
-            MessageLookupByLibrary.simpleMessage("TeachingMassSpectrometer")
+            MessageLookupByLibrary.simpleMessage("TeachingMassSpectrometer"),
+        "locale": MessageLookupByLibrary.simpleMessage("Locale"),
+        "navigationIndicator":
+            MessageLookupByLibrary.simpleMessage("Navigation Indicator"),
+        "navigationPaneDisplayMode": MessageLookupByLibrary.simpleMessage(
+            "Navigation Pane Display Mode"),
+        "textDirection": MessageLookupByLibrary.simpleMessage("Text Direction"),
+        "themeMode": MessageLookupByLibrary.simpleMessage("Theme Mode"),
+        "windowTransparency":
+            MessageLookupByLibrary.simpleMessage("Window Transparency")
       };
 }

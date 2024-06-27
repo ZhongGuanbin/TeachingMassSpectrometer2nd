@@ -25,62 +25,6 @@ class FrameEntrypoint extends StatefulWidget {
 class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
   final viewKey = GlobalKey(debugLabel: 'Navigation View Key');
 
-  late final List<NavigationPaneItem> originalItems = [
-    PaneItem(
-      key: const ValueKey('/'),
-      icon: const Icon(FluentIcons.home),
-      title: const Text('Home'),
-      body: const SizedBox.shrink(),
-    ),
-    PaneItemSeparator(),
-  ].map<NavigationPaneItem>((e) {
-    PaneItem buildPaneItem(PaneItem item) {
-      return PaneItem(
-        key: item.key,
-        icon: item.icon,
-        title: item.title,
-        body: item.body,
-        onTap: () {
-          final path = (item.key as ValueKey).value;
-          if (GoRouterState.of(context).uri.toString() != path) {
-            context.go(path);
-          }
-          item.onTap?.call();
-        },
-      );
-    }
-
-    if (e is PaneItemExpander) {
-      return PaneItemExpander(
-        key: e.key,
-        icon: e.icon,
-        title: e.title,
-        body: e.body,
-        items: e.items.map((item) {
-          if (item is PaneItem) return buildPaneItem(item);
-          return item;
-        }).toList(),
-      );
-    }
-    if (e is PaneItem) return buildPaneItem(e);
-    return e;
-  }).toList();
-
-  late final List<NavigationPaneItem> footerItems = [
-    PaneItemSeparator(),
-    PaneItem(
-      key: const ValueKey('/settings'),
-      icon: const Icon(FluentIcons.settings),
-      title: const Text('Settings'),
-      body: const SizedBox.shrink(),
-      onTap: () {
-        if (GoRouterState.of(context).uri.toString() != '/settings') {
-          context.go('/settings');
-        }
-      },
-    ),
-  ];
-
   @override
   void initState() {
     windowManager.addListener(this);
@@ -93,7 +37,11 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
     super.dispose();
   }
 
-  int _calculateSelectedIndex(BuildContext context) {
+  int _calculateSelectedIndex(
+    BuildContext context, {
+    required List<NavigationPaneItem> originalItems,
+    required List<NavigationPaneItem> footerItems,
+  }) {
     final location = GoRouterState.of(context).uri.toString();
     int indexOriginal = originalItems
         .where((item) => item.key != null)
@@ -118,18 +66,81 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
     }
   }
 
+  PaneItem _buildPaneItem(PaneItem item) {
+    return PaneItem(
+      key: item.key,
+      icon: item.icon,
+      title: item.title,
+      body: item.body,
+      onTap: () {
+        final path = (item.key as ValueKey).value;
+        if (GoRouterState.of(context).uri.toString() != path) {
+          context.go(path);
+        }
+        item.onTap?.call();
+      },
+    );
+  }
+
+  Widget _appTitle(Locale locale) {
+    if (locale.languageCode == 'zh') {
+      return Image.asset('assets/images/TMSAppTitleZh.png');
+    }
+    return Image.asset('assets/images/TMSAppTitleEn.png');
+  }
+
   @override
   Widget build(BuildContext context) {
     // final localizations = FluentLocalizations.of(context);
 
     final appTheme = context.watch<AppTheme>();
-    final theme = FluentTheme.of(context);
+    // final theme = FluentTheme.of(context);
 
     if (widget.shellContext != null) {
       if (router.canPop() == false) {
         setState(() {});
       }
     }
+
+    late final List<NavigationPaneItem> originalItems = [
+      PaneItem(
+        key: const ValueKey('/'),
+        icon: const Icon(FluentIcons.home),
+        title: const Text('Home'),
+        body: const SizedBox.shrink(),
+      ),
+      PaneItemSeparator(),
+    ].map<NavigationPaneItem>((e) {
+      if (e is PaneItemExpander) {
+        return PaneItemExpander(
+          key: e.key,
+          icon: e.icon,
+          title: e.title,
+          body: e.body,
+          items: e.items.map((item) {
+            if (item is PaneItem) return _buildPaneItem(item);
+            return item;
+          }).toList(),
+        );
+      }
+      if (e is PaneItem) return _buildPaneItem(e);
+      return e;
+    }).toList();
+
+    late final List<NavigationPaneItem> footerItems = [
+      PaneItemSeparator(),
+      PaneItem(
+        key: const ValueKey('/settings'),
+        icon: const Icon(FluentIcons.settings),
+        title: Text(TMSLocalizations.of(context).appSettings),
+        body: const SizedBox.shrink(),
+        onTap: () {
+          if (GoRouterState.of(context).uri.toString() != '/settings') {
+            context.go('/settings');
+          }
+        },
+      ),
+    ];
 
     return NavigationView(
       key: viewKey,
@@ -174,26 +185,26 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
         //     ),
         //   );
         // }(),
-        title: () {
-          if (kIsWeb) {
-            return Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                TMSLocalizations.of(context).appTitle,
-                style: FluentTheme.of(context).typography.title,
-              ),
-            );
-          }
-          return DragToMoveArea(
-            child: Align(
-              alignment: AlignmentDirectional.centerStart,
-              child: Text(
-                TMSLocalizations.of(context).appTitle,
-                style: FluentTheme.of(context).typography.title,
-              ),
-            ),
-          );
-        }(),
+        // title: () {
+        //   if (kIsWeb) {
+        //     return Align(
+        //       alignment: AlignmentDirectional.centerStart,
+        //       child: Text(
+        //         TMSLocalizations.of(context).appTitle,
+        //         style: FluentTheme.of(context).typography.title,
+        //       ),
+        //     );
+        //   }
+        //   return DragToMoveArea(
+        //     child: Align(
+        //       alignment: AlignmentDirectional.centerStart,
+        //       child: Text(
+        //         TMSLocalizations.of(context).appTitle,
+        //         style: FluentTheme.of(context).typography.title,
+        //       ),
+        //     ),
+        //   );
+        // }(),
         // actions: Row(
         //   mainAxisAlignment: MainAxisAlignment.end,
         //   children: [
@@ -217,6 +228,28 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
         //     if (!kIsWeb) const WindowButtons(),
         //   ],
         // ),
+        title: () {
+          if (kIsWeb) {
+            return Align(
+              alignment: AlignmentDirectional.centerStart,
+              // child: Text(
+              //   TMSLocalizations.of(context).appTitle,
+              //   style: FluentTheme.of(context).typography.title,
+              // ),
+              child: _appTitle(Localizations.localeOf(context)),
+            );
+          }
+          return DragToMoveArea(
+            child: Align(
+              alignment: AlignmentDirectional.centerStart,
+              // child: Text(
+              //   TMSLocalizations.of(context).appTitle,
+              //   style: FluentTheme.of(context).typography.title,
+              // ),
+              child: _appTitle(Localizations.localeOf(context)),
+            ),
+          );
+        }(),
         actions: !kIsWeb ? const WindowButtons() : null,
       ),
       paneBodyBuilder: (item, child) {
@@ -228,29 +261,33 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
         );
       },
       pane: NavigationPane(
-        selected: _calculateSelectedIndex(context),
-        header: SizedBox(
-          height: kOneLineTileHeight,
-          child: ShaderMask(
-            shaderCallback: (rect) {
-              final color = appTheme.color.defaultBrushFor(
-                theme.brightness,
-              );
-              return LinearGradient(
-                colors: [
-                  color,
-                  color,
-                ],
-              ).createShader(rect);
-            },
-            child: const FlutterLogo(
-              style: FlutterLogoStyle.horizontal,
-              size: 80.0,
-              textColor: Colors.white,
-              duration: Duration.zero,
-            ),
-          ),
+        selected: _calculateSelectedIndex(
+          context,
+          originalItems: originalItems,
+          footerItems: footerItems,
         ),
+        // header: SizedBox(
+        //   height: kOneLineTileHeight,
+        //   child: ShaderMask(
+        //     shaderCallback: (rect) {
+        //       final color = appTheme.color.defaultBrushFor(
+        //         theme.brightness,
+        //       );
+        //       return LinearGradient(
+        //         colors: [
+        //           color,
+        //           color,
+        //         ],
+        //       ).createShader(rect);
+        //     },
+        //     child: const FlutterLogo(
+        //       style: FlutterLogoStyle.horizontal,
+        //       size: 80.0,
+        //       textColor: Colors.white,
+        //       duration: Duration.zero,
+        //     ),
+        //   ),
+        // ),
         displayMode: appTheme.displayMode,
         indicator: () {
           switch (appTheme.indicator) {
@@ -330,18 +367,18 @@ class _FrameEntrypointState extends State<FrameEntrypoint> with WindowListener {
         context: context,
         builder: (_) {
           return ContentDialog(
-            title: const Text('Confirm close'),
-            content: const Text('Are you sure you want to close this window?'),
+            title: Text(TMSLocalizations.of(context).appCloseDialogTitle),
+            content: Text(TMSLocalizations.of(context).appCloseDialogContent),
             actions: [
               FilledButton(
-                child: const Text('Yes'),
+                child: Text(TMSLocalizations.of(context).appConfirmButtonLabel),
                 onPressed: () {
                   Navigator.pop(context);
                   windowManager.destroy();
                 },
               ),
               Button(
-                child: const Text('No'),
+                child: Text(TMSLocalizations.of(context).appCancelButtonLabel),
                 onPressed: () {
                   Navigator.pop(context);
                 },

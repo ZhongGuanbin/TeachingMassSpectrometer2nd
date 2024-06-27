@@ -5,5 +5,95 @@
         "description": "Title for the TeachingMassSpectrometer application",
         "type": "text",
         "placeholders": {}
+    },
+    "appConfirmButtonLabel": "Yes",
+    "@appConfirmButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appAffirmButtonLabel": "Yes",
+    "@appAffirmButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appCancelButtonLabel": "Cancel",
+    "@appCancelButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appBackButtonLabel": "Back",
+    "@appBackButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appDenyButtonLabel": "No",
+    "@appDenyButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appCloseDialogTitle": "Confirm close",
+    "@appCloseDialogTitle": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appCloseDialogContent": "Are you sure you want to close this window?",
+    "@appCloseDialogContent": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appSettings": "Settings",
+    "@appSettings": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "themeMode": "Theme Mode",
+    "@themeMode": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "navigationPaneDisplayMode": "Navigation Pane Display Mode",
+    "@navigationPaneDisplayMode": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "navigationIndicator": "Navigation Indicator",
+    "@navigationIndicator": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "accentColor": "Accent Color",
+    "@accentColor": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "windowTransparency": "Window Transparency",
+    "@windowTransparency": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "textDirection": "Text Direction",
+    "@textDirection": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "locale": "Locale",
+    "@locale": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
     }
 }

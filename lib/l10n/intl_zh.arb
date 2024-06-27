@@ -5,5 +5,95 @@
         "description": "",
         "type": "text",
         "placeholders": {}
+    },
+    "appConfirmButtonLabel": "确定",
+    "@appConfirmButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appAffirmButtonLabel": "是",
+    "@appAffirmButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appCancelButtonLabel": "取消",
+    "@appCancelButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appBackButtonLabel": "返回",
+    "@appBackButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appDenyButtonLabel": "否",
+    "@appDenyButtonLabel": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appCloseDialogTitle": "确认关闭",
+    "@appCloseDialogTitle": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appCloseDialogContent": "您确定要关闭此窗口吗？",
+    "@appCloseDialogContent": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "appSettings": "设置",
+    "@appSettings": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "themeMode": "主题模式",
+    "@themeMode": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "navigationPaneDisplayMode": "导航窗格显示模式",
+    "@navigationPaneDisplayMode": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "navigationIndicator": "导航指示器",
+    "@navigationIndicator": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "accentColor": "强调色",
+    "@accentColor": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "windowTransparency": "窗口透明度",
+    "@windowTransparency": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "textDirection": "文本方向",
+    "@textDirection": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
+    },
+    "locale": "语言",
+    "@locale": {
+        "description": "",
+        "type": "text",
+        "placeholders": {}
     }
 }

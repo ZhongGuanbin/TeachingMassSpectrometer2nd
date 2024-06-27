@@ -59,6 +59,156 @@ class TMSLocalizations {
       args: [],
     );
   }
+
+  /// `Yes`
+  String get appConfirmButtonLabel {
+    return Intl.message(
+      'Yes',
+      name: 'appConfirmButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Yes`
+  String get appAffirmButtonLabel {
+    return Intl.message(
+      'Yes',
+      name: 'appAffirmButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get appCancelButtonLabel {
+    return Intl.message(
+      'Cancel',
+      name: 'appCancelButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back`
+  String get appBackButtonLabel {
+    return Intl.message(
+      'Back',
+      name: 'appBackButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No`
+  String get appDenyButtonLabel {
+    return Intl.message(
+      'No',
+      name: 'appDenyButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm close`
+  String get appCloseDialogTitle {
+    return Intl.message(
+      'Confirm close',
+      name: 'appCloseDialogTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to close this window?`
+  String get appCloseDialogContent {
+    return Intl.message(
+      'Are you sure you want to close this window?',
+      name: 'appCloseDialogContent',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get appSettings {
+    return Intl.message(
+      'Settings',
+      name: 'appSettings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme Mode`
+  String get themeMode {
+    return Intl.message(
+      'Theme Mode',
+      name: 'themeMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Navigation Pane Display Mode`
+  String get navigationPaneDisplayMode {
+    return Intl.message(
+      'Navigation Pane Display Mode',
+      name: 'navigationPaneDisplayMode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Navigation Indicator`
+  String get navigationIndicator {
+    return Intl.message(
+      'Navigation Indicator',
+      name: 'navigationIndicator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Accent Color`
+  String get accentColor {
+    return Intl.message(
+      'Accent Color',
+      name: 'accentColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Window Transparency`
+  String get windowTransparency {
+    return Intl.message(
+      'Window Transparency',
+      name: 'windowTransparency',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Text Direction`
+  String get textDirection {
+    return Intl.message(
+      'Text Direction',
+      name: 'textDirection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Locale`
+  String get locale {
+    return Intl.message(
+      'Locale',
+      name: 'locale',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<TMSLocalizations> {

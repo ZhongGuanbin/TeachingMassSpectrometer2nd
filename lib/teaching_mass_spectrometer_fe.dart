@@ -40,6 +40,8 @@ class TeachingMassSpectrometerFe extends StatelessWidget {
             ),
           ),
           locale: appTheme.locale,
+
+          /// 不需要设置supportedLocales，默认使用FluentLocalizations.supportedLocales
           localizationsDelegates: const [
             GlobalWidgetsLocalizations.delegate,
             GlobalMaterialLocalizations.delegate,
@@ -47,7 +49,15 @@ class TeachingMassSpectrometerFe extends StatelessWidget {
             FluentLocalizations.delegate,
             TMSLocalizations.delegate,
           ],
-          /// 不需要设置supportedLocales，默认使用FluentLocalizations.supportedLocales
+
+          /// 当用户选择未配置的语言时，默认显示英语
+          localeListResolutionCallback: (locales, supportedLocales) {
+            if (locales == null) return const Locale.fromSubtags(languageCode: 'en');
+            for (Locale locale in locales) {
+              if (TMSLocalizations.delegate.supportedLocales.contains(locale)) return locale;
+            }
+            return const Locale.fromSubtags(languageCode: 'en');
+          },
           builder: (context, child) {
             return Directionality(
               textDirection: appTheme.textDirection,

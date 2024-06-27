@@ -67,7 +67,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<TMSLocalizations> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
-      Locale.fromSubtags(languageCode: 'zh', countryCode: 'CN'),
+      Locale.fromSubtags(languageCode: 'zh'),
     ];
   }
 
